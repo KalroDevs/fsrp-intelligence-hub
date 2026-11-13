@@ -54,20 +54,20 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       type: "red",
       icon: "fa-exclamation-triangle",
-      title: "Drought Watch: 12 Counties",
+      title: "Drought Watch: 2 Counties",
       desc: "Water trucking required in ASAL regions.",
     },
     {
       type: "amber",
       icon: "fa-ticket-alt",
       title: "3,000 eVouchers Pending",
-      desc: "Fertilizer redemption closes in 48 hours.",
+      desc: "Fertilizer redemption closes in 1 week.",
     },
     {
       type: "blue",
       icon: "fa-bug",
       title: "Pest Outbreak Alert",
-      desc: "Fall Armyworm reported in Trans Nzoia.",
+      desc: "Fall Armyworm reported in Garisaa, Tana River counties.",
     },
   ];
 
@@ -100,21 +100,21 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       spark: "M0,20 L10,18 L20,19 L30,14 L40,15 L50,10 L60,12 L70,6 L80,4",
     },
     {
-      value: "-",
-      label: "Farmers Adopting TIMPs",
+      value: "20",
+      label: "Prioirity Value Chains",
       desc: "Resilience-enhancing practices",
       spark: "M0,20 L10,19 L20,16 L30,15 L40,12 L50,10 L60,7 L70,4 L80,2",
     },
     {
-      value: "-",
-      label: "Hectares Managed",
-      desc: "Integrated land management",
+      value: "45%",
+      label: "Reported farmer income increases",
+      desc: "Beneficiary linkage to inputs, aggregation, and credit access leading to increase in farm income",
       spark: "M0,22 L10,20 L20,18 L30,18 L40,14 L50,11 L60,9 L70,7 L80,5",
     },
     {
-      value: "KSh -",
-      label: "Market Volume",
-      desc: "Agricultural production sold",
+      value: "500,000+",
+      label: "Livestock Population",
+      desc: "Cattle, sheep, goat population",
       spark: "M0,18 L10,15 L20,17 L30,12 L40,13 L50,8 L60,9 L70,4 L80,3",
     },
    
@@ -139,11 +139,11 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     
     {
       id: 2,
-      title: "Agripreneur Management System (APMS)",
+      title: "Agripreneur Management System",
       tag: "CPHRM - Agtech Pathway 1",
       desc: "Manage agripreneur bootcamps, incubation, commercialization, and performance tracking.",
-      stat: "1,336",
-      statLabel: "agents",
+      stat: "1,700+",
+      statLabel: "agripreneurs",
       icon: "fa-user-tie",
       iconClass: "icon-agripreneur",
       status: "grey",
@@ -154,11 +154,26 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     },
     {
       id: 3,
+      title: "Beneficiaries Dashboard",
+      tag: "NPCU",
+      desc: "Targetted beneficiaries",
+      stat: "1.3M",
+      statLabel: "beneficiaries",
+      icon: "fa-database",
+      iconClass: "icon-omfp",
+      status: "live",
+      statusLabel: "green",
+      statusText: "Synced 1 day ago",
+      img: "images/farmers.jpg",
+      cta: "View Dashboard",
+    },
+    {
+      id: 4,
       title: "One Million Farmer Platform",
       tag: "NPCU - Agtech Pathway 2",
       desc: "OMFP integration, unified farmer data lake, service matching, and big data insights.",
-      stat: "1.3M",
-      statLabel: "beneficiaries",
+      stat: "60K",
+      statLabel: "agritechs",
       icon: "fa-database",
       iconClass: "icon-omfp",
       status: "live",
@@ -168,7 +183,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "View Data",
     },
     {
-      id: 4,
+      id: 5,
       title: "Fertilizer Subsidies",
       tag: "MoALD",
       desc: "Ministry services: Fertilizer distribution (eVoucher)",
@@ -183,7 +198,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Check",
     },
     {
-      id: 5,
+      id: 6,
       title: "Vaccination",
       tag: "MoALD",
       desc: "Ministry services: livestock vaccination tracking.",
@@ -198,7 +213,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Check",
     },
     {
-      id: 6,
+      id: 7,
       title: "Digital Climate Advisory",
       tag: "KALRO",
       desc: "Real-time weather, seasonal forecasts, and climate-smart recommendations delivered via SMS and app.",
@@ -213,7 +228,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Get Forecast",
     },
     {
-      id: 7,
+      id: 8,
       title: "Soil Sampling",
       tag: "KALRO",
       desc: "Sampling requests, digital soil fertility maps and lab results. Precision agriculture starts with accurate soil data.",
@@ -228,7 +243,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Request",
     },
     {
-      id: 7,
+      id: 9,
       title: "Soil Recommendations",
       tag: "KALRO",
       desc: "Track soil health, sampling requests, and lab results. Precision agriculture starts with accurate soil data.",
@@ -243,7 +258,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Request",
     },
     {
-      id: 8,
+      id: 10,
       title: "Digitized TIMPs",
       tag: "KALRO",
       desc: "Beneficiaries of Technology, Innovation & Management Practices – monitor adoption and impact.",
@@ -259,7 +274,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     },
     
     {
-      id: 9,
+      id: 11,
       title: "Farmer Led Irrigation (FLID)",
       tag: "NPCU",
       desc: "Monitor irrigation schemes, water use, and connect farmers with solar-powered smart systems.",
@@ -275,7 +290,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     },
     
     {
-      id: 10,
+      id: 12,
       title: "Common Interest Groups",
       tag: "Business Accelerator-CPHRM",
       desc: "Beneficiary CIG registry: profiles, group dynamics, and saturation coverage across all project wards.",
@@ -470,7 +485,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                     </a>
                   </div>
                   <div className="mega-column">
-                    <h4>Gov Services</h4>
+                    <h4>GOV Services</h4>
                     <a href="#" className="mega-link">
                       <DynamicIcon name="fa-syringe" size={24} />
                       <div>

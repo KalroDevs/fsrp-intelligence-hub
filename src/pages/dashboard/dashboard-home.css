@@ -1,0 +1,493 @@
+/* dashboard-home.css */
+
+/* =========================================================
+   DASHBOARD HOME STYLES
+   (Place in src/pages/dashboard/dashboard-home.css)
+========================================================= */
+
+.dashboard-home {
+  padding: 16px 18px 28px;
+  overflow: visible;
+}
+
+/* =========================================================
+   PDO STRIP
+========================================================= */
+
+.pdo-strip-dashboard {
+  margin-bottom: 24px;
+}
+
+.pdo-summary-dashboard {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(5, 0.8fr);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.pdo-heading-dashboard {
+  padding: 18px 20px;
+  background: var(--brand-50);
+}
+
+.pdo-heading-dashboard small {
+  color: var(--brand-700);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.pdo-heading-dashboard h3 {
+  margin-top: 4px;
+  font-size: 14px;
+  font-family: "Sora", sans-serif;
+}
+
+.pdo-item-dashboard {
+  padding: 18px 14px;
+  border-left: 1px solid var(--border);
+}
+
+.pdo-item-dashboard span {
+  display: block;
+  color: var(--muted);
+  font-size: 8px;
+  line-height: 1.3;
+}
+
+.pdo-item-dashboard strong {
+  display: block;
+  margin-top: 4px;
+  font-family: "Sora", sans-serif;
+  font-size: 20px;
+  color: var(--brand-800);
+}
+
+.pdo-item-dashboard small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 8px;
+}
+
+/* =========================================================
+   STATISTICS GRID
+========================================================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.stat-icon {
+  font-size: 18px;
+}
+
+.stat-label {
+  font-size: 7.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.stat-value-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-family: "Sora", sans-serif;
+  color: var(--brand-800);
+}
+
+.stat-change {
+  font-size: 7.5px;
+  color: var(--brand-600);
+  background: var(--brand-50);
+  padding: 1px 8px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+.stat-note {
+  font-size: 6.5px;
+  color: var(--muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.stat-indicator {
+  margin-top: 8px;
+  height: 2px;
+  width: 30%;
+  border-radius: 2px;
+}
+
+/* =========================================================
+   NODES SECTION
+========================================================= */
+
+.nodes-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.nodes-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.nodes-header strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 10px;
+}
+
+.nodes-header span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 6.5px;
+}
+
+.nodes-grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 12px;
+}
+
+.node-card-dashboard {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  text-align: center;
+}
+
+.node-card-dashboard:hover {
+  background: var(--brand-50);
+  border-color: var(--brand-100);
+}
+
+.node-icon-dashboard {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: white;
+  font-size: 11px;
+  margin: 0 auto 6px;
+}
+
+.node-card-dashboard strong {
+  display: block;
+  font-size: 6.5px;
+}
+
+.node-value-dashboard {
+  margin-top: 4px;
+  font-family: "Sora", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--brand-800);
+}
+
+.node-card-dashboard span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 5px;
+}
+
+/* =========================================================
+   CHARTS GRID
+========================================================= */
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.chart-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.chart-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.chart-card-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.chart-card-header strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 10px;
+}
+
+.chart-card-header span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 6.5px;
+}
+
+.chart-body {
+  padding: 16px;
+  overflow: auto;
+}
+
+.chart-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+
+.chart-stats div {
+  text-align: center;
+}
+
+.chart-stats span {
+  display: block;
+  font-size: 7px;
+  color: var(--muted);
+}
+
+.chart-stats strong {
+  display: block;
+  font-size: 14px;
+  font-family: "Sora", sans-serif;
+  color: var(--brand-800);
+}
+
+/* =========================================================
+   PIE CHART
+========================================================= */
+
+.pie-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8.5px;
+  color: var(--ink-soft);
+}
+
+.legend-item strong {
+  color: var(--brand-800);
+}
+
+.legend-color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   AGE BARS
+========================================================= */
+
+.age-bar {
+  margin-bottom: 10px;
+}
+
+.age-bar:last-child {
+  margin-bottom: 0;
+}
+
+.age-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  font-size: 8.5px;
+  color: var(--ink-soft);
+}
+
+.age-bar-label strong {
+  color: var(--brand-800);
+}
+
+.age-bar-track {
+  height: 18px;
+  background: var(--surface-2);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.age-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1s ease;
+}
+
+/* =========================================================
+   BAR CHART WRAPPER
+========================================================= */
+
+.bar-chart-wrapper {
+  overflow: auto;
+  min-width: 500px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+  .pdo-summary-dashboard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pdo-heading-dashboard {
+    grid-column: 1 / -1;
+  }
+  .nodes-grid-dashboard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-home {
+    padding: 12px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .nodes-grid-dashboard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pdo-summary-dashboard {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .nodes-grid-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pdo-summary-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .pdo-item-dashboard {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .pie-chart-wrapper {
+    flex-direction: column;
+  }
+  .chart-stats {
+    gap: 16px;
+  }
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .stat-card {
+  background: var(--surface);
+}
+.dark-mode .nodes-section {
+  background: var(--surface);
+}
+.dark-mode .chart-card {
+  background: var(--surface);
+}
+.dark-mode .node-card-dashboard {
+  background: var(--surface-2);
+}
+
+/* =========================================================
+   HIGH CONTRAST
+========================================================= */
+
+.high-contrast .stat-card {
+  border: 2px solid #000;
+}
+.high-contrast .nodes-section {
+  border: 2px solid #000;
+}
+.high-contrast .chart-card {
+  border: 2px solid #000;
+}
+
+/* =========================================================
+   LARGE TEXT
+========================================================= */
+
+.large-text .stat-value {
+  font-size: 24px !important;
+}
+.large-text .pdo-item-dashboard strong {
+  font-size: 24px !important;
+}
+.large-text .node-value-dashboard {
+  font-size: 18px !important;
+}
+
+
