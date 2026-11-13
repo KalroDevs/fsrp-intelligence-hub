@@ -124,10 +124,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 1,
       title: "Project Cooperatives",
-      tag: "EasySacco Integration",
+      tag: "NPCU",
       desc: "Manage FPOs and SACCOs: membership, savings, credit scores, and automated EasySacco integration.",
-      stat: "158",
-      statLabel: "groups",
+      stat: "247",
+      statLabel: "farmer cooperatives",
       icon: "fa-users-rectangle",
       iconClass: "icon-coop",
       status: "amber",
@@ -139,8 +139,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     
     {
       id: 2,
-      title: "Agripreneur Management",
-      tag: "Agtech Pathway 1",
+      title: "Agripreneur Management System (APMS)",
+      tag: "CPHRM - Agtech Pathway 1",
       desc: "Manage agripreneur bootcamps, incubation, commercialization, and performance tracking.",
       stat: "1,336",
       statLabel: "agents",
@@ -155,10 +155,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 3,
       title: "One Million Farmer Platform",
-      tag: "Agtech Pathway 2",
+      tag: "NPCU - Agtech Pathway 2",
       desc: "OMFP integration, unified farmer data lake, service matching, and big data insights.",
-      stat: "6.4M",
-      statLabel: "records",
+      stat: "1.3M",
+      statLabel: "beneficiaries",
       icon: "fa-database",
       iconClass: "icon-omfp",
       status: "live",
@@ -170,10 +170,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 4,
       title: "Fertilizer Subsidies",
-      tag: "eVoucher",
+      tag: "MoALD",
       desc: "Ministry services: Fertilizer distribution (eVoucher)",
-      stat: "eVoucher",
-      statLabel: "& Vaccines",
+      stat: "500K",
+      statLabel: "eVouchers",
       icon: "fa-syringe",
       iconClass: "icon-moald",
       status: "amber",
@@ -185,10 +185,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 5,
       title: "Vaccination",
-      tag: "eVoucher",
+      tag: "MoALD",
       desc: "Ministry services: livestock vaccination tracking.",
-      stat: "eVoucher",
-      statLabel: "& Vaccines",
+      stat: "300K",
+      statLabel: "Vaccines",
       icon: "fa-syringe",
       iconClass: "icon-moald",
       status: "amber",
@@ -200,10 +200,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 6,
       title: "Digital Climate Advisory",
-      tag: "KAOP & KALRO",
+      tag: "KALRO",
       desc: "Real-time weather, seasonal forecasts, and climate-smart recommendations delivered via SMS and app.",
-      stat: "3,800",
-      statLabel: "farmers",
+      stat: "300K",
+      statLabel: "beneficiaries",
       icon: "fa-cloud-sun-rain",
       iconClass: "icon-climate",
       status: "live",
@@ -215,8 +215,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 7,
       title: "Soil Sampling",
-      tag: "SFSHMP Platform",
-      desc: "Track soil health, sampling requests, and lab results. Precision agriculture starts with accurate soil data.",
+      tag: "KALRO",
+      desc: "Sampling requests, digital soil fertility maps and lab results. Precision agriculture starts with accurate soil data.",
       stat: "1,250",
       statLabel: "samples",
       icon: "fa-flask",
@@ -228,9 +228,24 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       cta: "Request",
     },
     {
+      id: 7,
+      title: "Soil Recommendations",
+      tag: "KALRO",
+      desc: "Track soil health, sampling requests, and lab results. Precision agriculture starts with accurate soil data.",
+      stat: "100K",
+      statLabel: "recommendation",
+      icon: "fa-flask",
+      iconClass: "icon-soil",
+      status: "live",
+      statusLabel: "green",
+      statusText: "Synced 2m ago",
+      img: "images/apoei.jpg",
+      cta: "Request",
+    },
+    {
       id: 8,
       title: "Digitized TIMPs",
-      tag: "KeEP Platform",
+      tag: "KALRO",
       desc: "Beneficiaries of Technology, Innovation & Management Practices – monitor adoption and impact.",
       stat: "4,100",
       statLabel: "adopters",
@@ -246,7 +261,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 9,
       title: "Farmer Led Irrigation (FLID)",
-      tag: "IoT Sensor Network",
+      tag: "NPCU",
       desc: "Monitor irrigation schemes, water use, and connect farmers with solar-powered smart systems.",
       stat: "78",
       statLabel: "schemes",
@@ -262,7 +277,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       id: 10,
       title: "Common Interest Groups",
-      tag: "KIAMIS Database",
+      tag: "Business Accelerator-CPHRM",
       desc: "Beneficiary CIG registry: profiles, group dynamics, and saturation coverage across all project wards.",
       stat: "2,300",
       statLabel: "CIGs",
@@ -350,7 +365,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
           <div className="logo-container">
             <div className="logo-icon-wrapper"> 
               <img 
-                src="/public/images/fsrp_logo.jpg" 
+                src="/images/fsrp_logo.jpg" 
                 alt="FSRP Logo"
                 height={60} 
                 width={70}
@@ -362,7 +377,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
               <h1>
                 FSRP Kenya Intelligence Hub 
               </h1>
-              <p>Ministry of Agriculture & Livestock Development</p>
+              <p>Food Systems Resilience Program</p>
             </div>
           </div>
         </div>
@@ -592,47 +607,12 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
               <div className="impact-value">{stat.value}</div>
               <div className="impact-label">{stat.label}</div>
               <div className="impact-desc">{stat.desc}</div>
-              <svg className="sparkline" viewBox="0 0 80 24">
-                <path className="fill" d={`${stat.spark} L80,24 L0,24 Z`} />
-                <path d={stat.spark} />
-              </svg>
             </div>
           ))}
         </div>
       </section>
 
-      {/* INTERACTIVE MAP PLACEHOLDER */}
-      <section className="map-section">
-        <div className="map-container">
-          <div>
-            <h4
-              style={{
-                fontFamily: "Inter",
-                color: "var(--primary-dark)",
-                marginBottom: "4px",
-                fontWeight: 800,
-              }}
-            >
-              Geospatial Intelligence
-            </h4>
-            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
-              Explore national agricultural data.
-            </p>
-          </div>
-
-          <svg
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="Map of Kenya"
-          >
-            <path d="M94.7,10.5c-4.3,1.6-9,2.6-12.6,5.4c-3.8,3-6.3,7.4-9.8,10.7c-6.6,6.2-15.6,9-23,14.1c-4.7,3.3-8.5,7.7-13.6,10.4c-4.6,2.4-10.1,3-14.3,6.1c-3,2.2-5.1,5.4-7.8,7.9c-4,3.7-9,6.1-13.4,9.4c-4,3-7.4,6.8-11.7,9.4c-3.9,2.3-8.5,3.3-12,6.2c-2.6,2.2-4.2,5.4-6.7,7.7c-3.7,3.4-8.5,5.3-12.2,8.6c-3,2.7-4.9,6.3-7.7,9.1c-3.8,3.8-8.8,6.1-12.6,9.8c-3.2,3.1-5.2,7.3-8.4,10.4c-3,3-6.9,4.9-10.1,7.6c-2.7,2.3-4.7,5.3-7.4,7.6c-3.7,3.1-8.2,5.1-12,8c-3.2,2.4-5.7,5.6-8.7,8.2c-3.5,3-7.8,4.9-11.5,7.6c-2.7,2.1-4.8,4.9-7.5,7c-3.5,2.8-7.8,4.5-11.2,7.4c-2.8,2.3-4.8,5.4-7.4,7.8c-3.2,3-7.2,4.9-10.6,7.5c-2.7,2.1-4.8,4.9-7.5,7c-3.6,2.7-8,4.3-11.5,7.1c-2.8,2.2-4.9,5.2-7.6,7.5c-3.2,2.7-7.1,4.5-10.5,6.9c-2.7,2-4.8,4.8-7.4,6.9c-3.6,2.9-8,4.6-11.5,7.6c-2.8,2.4-4.8,5.6-7.5,8c-3,2.7-6.9,4.4-10.1,6.8c-2.8,2.1-4.9,5-7.6,7.1c-3.6,2.8-8.1,4.4-11.7,7.2c-2.9,2.3-5,5.4-7.8,7.8c-3,2.6-6.8,4.3-10,6.7c-2.8,2.1-4.9,5-7.6,7.1c-3.5,2.7-7.8,4.3-11.3,7c-2.9,2.2-5,5.2-7.8,7.5c-2.8,2.3-6.1,3.8-9.1,5.9c-2.6,1.8-4.8,4.2-7.2,6.3c-0.4,0.3-0.8,0.5-1.2,0.8c1.6-1.3,3.3-2.5,4.9-3.8c2.9-2.3,5.1-5.4,8-7.7c3.5-2.8,7.8-4.5,11.4-7.2c2.9-2.3,5-5.4,7.8-7.7c3.1-2.6,6.9-4.3,10-6.7c2.8-2.1,4.9-5,7.6-7.2c3.5-2.8,7.9-4.5,11.5-7.3c2.8-2.2,4.9-5.2,7.6-7.5c3.2-2.7,7.1-4.5,10.5-6.9c2.7-2,4.8-4.8,7.4-6.9c3.6-2.9,8-4.6,11.5-7.6c2.8-2.4,4.8-5.6,7.5-8c3-2.7,6.9-4.4,10.1-6.8c2.8-2.1,4.9-5,7.6-7.1c3.6-2.8,8.1-4.4,11.7-7.2c2.9-2.3,5-5.4,7.8-7.8c3-2.6,6.8-4.3,10-6.7c2.8-2.1,4.9-5,7.6-7.1c3.5-2.7,7.8-4.3,11.3-7c2.9-2.2,5-5.2,7.8-7.5c2.8-2.3,6.1-3.8,9.1-5.9c2.6-1.8,4.8-4.2,7.2-6.3c3.8-3.3,8.3-5.7,12.2-8.9c3.5-2.9,6.4-6.5,9.8-9.5c3.9-3.4,8.5-5.8,12.4-9c3.2-2.7,5.8-6.2,8.9-9c3.9-3.5,8.6-6,12.5-9.4c3.2-2.8,5.8-6.4,8.9-9.3c3.5-3.2,7.7-5.5,11.2-8.6c3.5-3.1,6.3-6.9,9.8-9.9c3.5-3.1,7.7-5.4,11.2-8.5c3.5-3.1,6.3-6.9,9.8-9.9c3.1-2.7,6.8-4.6,9.9-7.3c3.7-3.2,6.6-7.2,10.3-10.4c3.7-3.2,8.2-5.5,11.9-8.7c3.2-2.8,5.8-6.3,8.9-9.2c4.2-3.8,9.3-6.5,13.5-10.2c3-2.7,5.3-6.1,8.3-8.8c4.1-3.7,9-6.3,13.1-9.9c2.8-2.4,5.1-5.4,7.9-7.7c3.5-2.9,7.8-4.6,11.3-7.4c3.4-2.8,6-6.5,9.4-9.4c3.8-3.2,8.3-5.5,12.2-8.6c3.2-2.6,5.8-6,8.9-8.6c3.8-3.2,8.2-5.5,12-8.7c3.2-2.7,5.8-6.2,8.9-9c3.9-3.5,8.6-6,12.5-9.4c3.2-2.8,5.8-6.4,8.9-9.3c3.5-3.2,7.7-5.5,11.2-8.6C180.8,11,185.4,8.6,189,5.6c2.3-1.8,4.5-3.8,6.8-5.6c-3.4,1.3-6.6,3-9.8,4.7c-4.5,2.4-9.2,4.2-13.5,7C169.1,13.8,165.7,16.8,162,19c-4.1,2.5-8.7,4.2-12.8,6.8c-3.3,2.1-6.1,4.9-9.4,7c-4,2.5-8.4,4.3-12.4,6.9c-3.3,2.1-6.2,4.9-9.5,7c-4,2.5-8.5,4.2-12.5,6.7c-3.4,2.1-6.2,4.9-9.6,7c-4,2.5-8.5,4.2-12.5,6.7c-3.4,2.1-6.2,4.9-9.6,7c-4,2.5-8.5,4.2-12.5,6.7c-3.4,2.1-6.2,4.9-9.6,7c-4,2.5-8.5,4.2-12.5,6.7c-3.4,2.1-6.2,4.9-9.6,7c-4,2.5-8.5,4.2-12.5,6.7C75,130.6,71.6,133.2,68,135c-4.1,2.2-8.8,3.6-12.8,6c-3.1,1.8-5.7,4.4-8.8,6.2c-4.1,2.4-8.9,3.7-13,6c-3,1.7-5.6,4.1-8.6,5.8c-4.2,2.4-9,3.7-13.1,6.1c-3,1.8-5.6,4.2-8.6,6c-4.2,2.5-9,3.9-13.1,6.4c-3,1.8-5.5,4.3-8.5,6.1c-4.3,2.6-9.1,4-13.2,6.6c-2.9,1.8-5.4,4.2-8.3,6c-4.3,2.7-9.2,4.1-13.4,6.8c-2.8,1.8-5.2,4.3-8,6.1c-4.3,2.7-9.3,4.2-13.5,6.9c-2.7,1.8-5.1,4.3-7.8,6.1c-0.1,0.1-0.2,0.1-0.3,0.2c-0.5,0.3-0.9,0.7-1.4,1c3.7-1.8,7.2-4,10.6-6.2c4.4-2.9,9.5-4.4,13.9-7.3c2.8-1.8,5.1-4.4,7.9-6.2c4.3-2.7,9.3-4.2,13.5-6.9c2.8-1.8,5.2-4.3,8-6.1c4.3-2.7,9.3-4.2,13.5-6.9c2.8-1.8,5.1-4.4,7.9-6.2c4.3-2.7,9.3-4.2,13.5-6.9c2.8-1.8,5.2-4.3,8-6.1c4.3-2.7,9.3-4.2,13.5-6.9c2.8-1.8,5.1-4.4,7.9-6.2c4.3-2.7,9.3-4.2,13.5-6.9c2.8-1.8,5.2-4.3,8-6.1c4.3-2.7,9.2-4.1,13.4-6.8c2.9-1.8,5.4-4.2,8.3-6c4.1-2.6,8.9-4,13.2-6.6c3-1.8,5.5-4.3,8.5-6.1c4.1-2.5,8.9-3.9,13.1-6.4c3-1.8,5.6-4.2,8.6-6c4.1-2.4,8.8-3.7,13-6c3-1.7,5.6-4.1,8.6-5.8c4.1-2.3,8.9-3.6,12.8-6c3.2-1.8,5.8-4.4,8.8-6.2c4-2.4,8.7-3.8,12.5-6.4c3.2-2.1,5.9-4.9,9.1-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c3.4-2.1,6.2-4.9,9.6-7c4-2.5,8.5-4.2,12.5-6.7c0.3-0.2,0.7-0.4,1-0.6c-0.7-0.3-1.3-0.6-2-0.9c-3.5-1.5-6.5-3.6-9.8-5.4C110.4,10.3,102.7,8.7,94.7,10.5z" />
-          </svg>
-
-          <button className="btn-export">
-            Open Full Map <DynamicIcon name="fa-expand" size={16} />
-          </button>
-        </div>
-      </section>
+   
 
       {/* DASHBOARD CARDS SECTION */}
       <section className="dashboard-section">
@@ -715,7 +695,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       <section className="spotlight-section">
         <div className="spotlight-card">
           <img
-            src="https://images.unsplash.com/photo-1595155370214-4b3e3f9d1c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="images/cig.jpg"
             alt="Mary, a Kenyan Farmer"
             className="spotlight-img"
           />
