@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Bot } from "lucide-react";
 import DynamicIcon from "../../components/DynamicIcon";
 import "./homepage.css";
 
 const HomePage = ({ lang = "en", onLangChange, t }) => {
+  const navigate = useNavigate();
   const [highContrast, setHighContrast] = useState(false);
 
   // Toggle high contrast class on body
@@ -21,7 +23,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     }
   };
 
-  // Fallback translations if 't' prop isn't provided by the i18n hook
+  // Built-in translations
   const translations = {
     en: {
       heroTitle: "Data-Driven Decisions.\nResilient Food Systems.",
@@ -47,7 +49,19 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     },
   };
 
-  const currentT = t || translations[lang] || translations.en;
+  // Resolve translations safely
+  const fallback = translations[lang] || translations.en;
+  const currentT = (() => {
+    if (typeof t === "function") {
+      const resolved = {};
+      Object.keys(fallback).forEach((key) => {
+        const value = t(key);
+        resolved[key] = value && value !== key ? value : fallback[key];
+      });
+      return resolved;
+    }
+    return fallback;
+  })();
 
   // Data arrays
   const alerts = [
@@ -60,7 +74,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       type: "amber",
       icon: "fa-ticket-alt",
-      title: "3,000 eVouchers Pending",
+      title: "3,000+ eVouchers Pending",
       desc: "Fertilizer redemption closes in 1 week.",
     },
     {
@@ -74,21 +88,21 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
   const marqueeItems = [
     <React.Fragment key="1">
       <span className="tag urgent">URGENT</span>{" "}
-      <DynamicIcon name="fa-exclamation-triangle" size={14} /> Fall Armyworm
-      alert issued for Trans Nzoia and Bungoma counties.
+      <DynamicIcon name="fa-exclamation-triangle" size={14} />{" "}
+      <span>Fall Armyworm alert issued for Trans Nzoia and Bungoma counties.</span>
     </React.Fragment>,
     <React.Fragment key="2">
-      <DynamicIcon name="fa-cloud-sun-rain" size={14} /> Short rains expected to
-      begin early in the Eastern region. View advisory.
+      <DynamicIcon name="fa-cloud-sun-rain" size={14} />{" "}
+      <span>Short rains expected to begin early in the Eastern region. View advisory.</span>
     </React.Fragment>,
     <React.Fragment key="3">
       <span className="tag">NEW</span>{" "}
-      <DynamicIcon name="fa-star" size={14} /> One Million Farmer Platform API
-      v2.0 is now live for all Agtechs.
+      <DynamicIcon name="fa-star" size={14} />{" "}
+      <span>One Million Farmer Platform API v2.0 is now live for all Agtechs.</span>
     </React.Fragment>,
     <React.Fragment key="4">
-      <DynamicIcon name="fa-syringe" size={14} /> Livestock vaccination drive
-      starts next Monday in Garissa.
+      <DynamicIcon name="fa-syringe" size={14} />{" "}
+      <span>Livestock vaccination drive starts next Monday in Garissa.</span>
     </React.Fragment>,
   ];
 
@@ -97,29 +111,25 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       value: "1.3 Million +",
       label: "Targeted Beneficiaries",
       desc: "Improved productivity, Resilience, Commercialization",
-      spark: "M0,20 L10,18 L20,19 L30,14 L40,15 L50,10 L60,12 L70,6 L80,4",
     },
     {
       value: "20",
-      label: "Prioirity Value Chains",
+      label: "Priority Value Chains",
       desc: "Resilience-enhancing practices",
-      spark: "M0,20 L10,19 L20,16 L30,15 L40,12 L50,10 L60,7 L70,4 L80,2",
     },
     {
       value: "45%",
       label: "Reported farmer income increases",
       desc: "Beneficiary linkage to inputs, aggregation, and credit access leading to increase in farm income",
-      spark: "M0,22 L10,20 L20,18 L30,18 L40,14 L50,11 L60,9 L70,7 L80,5",
     },
     {
       value: "500,000+",
       label: "Livestock Population",
       desc: "Cattle, sheep, goat population",
-      spark: "M0,18 L10,15 L20,17 L30,12 L40,13 L50,8 L60,9 L70,4 L80,3",
     },
-   
   ];
 
+  // Each service now has a `route` field mapping to a dashboard page
   const services = [
     {
       id: 1,
@@ -135,15 +145,15 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Syncing 2d ago",
       img: "images/cooperatives.jpg",
       cta: "Manage",
+      route: "/cooperatives/home",
     },
-    
     {
       id: 2,
       title: "Agripreneur Management System",
       tag: "CPHRM - Agtech Pathway 1",
       desc: "Manage agripreneur bootcamps, incubation, commercialization, and performance tracking.",
-      stat: "1,700+",
-      statLabel: "agripreneurs",
+      stat: "1795",
+      statLabel: "active agripreneurs",
       icon: "fa-user-tie",
       iconClass: "icon-agripreneur",
       status: "grey",
@@ -151,6 +161,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Secure",
       img: "images/agripreneur.jpg",
       cta: "Manage",
+      route: "/dashboard/beneficiaries",
     },
     {
       id: 3,
@@ -166,6 +177,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Synced 1 day ago",
       img: "images/farmers.jpg",
       cta: "View Dashboard",
+      route: "/beneficiaries/home",
     },
     {
       id: 4,
@@ -181,6 +193,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Synced 10m ago",
       img: "images/agritech.webp",
       cta: "View Data",
+      route: "/dashboard/beneficiaries",
     },
     {
       id: 5,
@@ -196,6 +209,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Pending",
       img: "images/fertilized.jpg",
       cta: "Check",
+      route: "/dashboard/services",
     },
     {
       id: 6,
@@ -211,6 +225,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Pending",
       img: "images/vaccination.jpg",
       cta: "Check",
+      route: "/dashboard/services",
     },
     {
       id: 7,
@@ -226,6 +241,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Live Forecast",
       img: "images/kaop.jpg",
       cta: "Get Forecast",
+      route: "/dashboard/advisories",
     },
     {
       id: 8,
@@ -241,6 +257,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Synced 2m ago",
       img: "images/soil.jpg",
       cta: "Request",
+      route: "/dashboard/technologies",
     },
     {
       id: 9,
@@ -256,6 +273,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Synced 2m ago",
       img: "images/apoei.jpg",
       cta: "Request",
+      route: "/dashboard/technologies",
     },
     {
       id: 10,
@@ -271,8 +289,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Delayed 5d",
       img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       cta: "View",
+      route: "/dashboard/technologies",
     },
-    
     {
       id: 11,
       title: "Farmer Led Irrigation (FLID)",
@@ -287,8 +305,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Live Sensor",
       img: "images/irrigation.jpg",
       cta: "View",
+      route: "/dashboard/technologies",
     },
-    
     {
       id: 12,
       title: "Common Interest Groups",
@@ -303,10 +321,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Registry",
       img: "images/apoei2.jpg",
       cta: "View",
+      route: "/dashboard/beneficiaries",
     },
-    
-    
-    
   ];
 
   return (
@@ -315,11 +331,12 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       <div className="top-utility-bar">
         <div className="utility-left">
           <span>
-            <DynamicIcon name="fa-landmark" size={14} /> Official Government
-            Portal
+            <DynamicIcon name="fa-landmark" size={14} />{" "}
+            <span>Official Government Portal</span>
           </span>
           <span>
-            <DynamicIcon name="fa-shield-alt" size={14} /> Secure Connection
+            <DynamicIcon name="fa-shield-alt" size={14} />{" "}
+            <span>Secure Connection</span>
           </span>
         </div>
         <div className="utility-right">
@@ -328,7 +345,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
             onClick={() => setHighContrast(!highContrast)}
             title="Toggle High Contrast Mode"
           >
-            <DynamicIcon name="fa-eye" size={14} /> High Contrast
+            <DynamicIcon name="fa-eye" size={14} />{" "}
+            <span>High Contrast</span>
           </button>
 
           <div className="lang-selector-wrapper">
@@ -350,7 +368,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                       lang === "en" ? "var(--primary-green)" : "transparent",
                   }}
                 />{" "}
-                English
+                <span>English</span>
               </div>
               <div
                 className={`lang-option ${lang === "sw" ? "active" : ""}`}
@@ -364,12 +382,13 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                       lang === "sw" ? "var(--primary-green)" : "transparent",
                   }}
                 />{" "}
-                Kiswahili
+                <span>Kiswahili</span>
               </div>
             </div>
           </div>
           <span className="utility-link">
-            <DynamicIcon name="fa-question-circle" size={14} /> Help Desk
+            <DynamicIcon name="fa-question-circle" size={14} />{" "}
+            <span>Help Desk</span>
           </span>
         </div>
       </div>
@@ -378,20 +397,16 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       <header>
         <div className="top-header">
           <div className="logo-container">
-            <div className="logo-icon-wrapper"> 
-              <img 
-                src="/images/fsrp_logo.jpg" 
+            <div className="logo-icon-wrapper">
+              <img
+                src="/images/fsrp_logo.jpg"
                 alt="FSRP Logo"
-                height={60} 
+                height={60}
                 width={70}
-                
               />
-
             </div>
             <div className="logo-text">
-              <h1>
-                FSRP Kenya Intelligence Hub 
-              </h1>
+              <h1>FSRP Kenya Intelligence Hub</h1>
               <p>Ministry of Agriculture and Livestock Development</p>
             </div>
           </div>
@@ -401,13 +416,14 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
           <nav className="nav-links">
             <div className="nav-item">
               <a href="#" className="active">
-                <DynamicIcon name="fa-home" size={16} /> {currentT.navHome}
+                <DynamicIcon name="fa-home" size={16} />{" "}
+                <span>{currentT.navHome}</span>
               </a>
             </div>
 
             <div className="nav-item">
               <a href="#">
-                {currentT.navTech}{" "}
+                <span>{currentT.navTech}</span>
                 <DynamicIcon name="fa-chevron-down" size={14} />
               </a>
               <div className="mega-menu">
@@ -462,7 +478,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
 
             <div className="nav-item">
               <a href="#">
-                {currentT.navPlatforms}{" "}
+                <span>{currentT.navPlatforms}</span>
                 <DynamicIcon name="fa-chevron-down" size={14} />
               </a>
               <div className="mega-menu">
@@ -510,7 +526,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
 
             <div className="nav-item">
               <a href="#">
-                {currentT.navRegistries}{" "}
+                <span>{currentT.navRegistries}</span>
                 <DynamicIcon name="fa-chevron-down" size={14} />
               </a>
               <div className="mega-menu">
@@ -555,17 +571,24 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
         <div className="hero-content">
           <div className="hero-text">
             <div className="hero-tag">
-              <div className="dot"></div> FOOD SYSTEMS RESILIENCE PROGRAM
+              <div className="dot"></div>{" "}
+              <span>FOOD SYSTEMS RESILIENCE PROGRAM</span>
             </div>
             <h2 style={{ whiteSpace: "pre-line" }}>{currentT.heroTitle}</h2>
             <p>{currentT.heroDesc}</p>
             <div className="hero-buttons">
-              <button className="btn btn-primary">
-                {currentT.btnExplore}{" "}
+              <button
+                className="btn btn-primary"
+                onClick={() => navigate("/login")}
+              >
+                <span>{currentT.btnExplore}</span>
                 <DynamicIcon name="fa-arrow-right" size={18} />
               </button>
-              <button className="btn btn-outline">
-                {currentT.btnResults}
+              <button
+                className="btn btn-outline"
+                onClick={() => navigate("/dashboard/home")}
+              >
+                <span>{currentT.btnResults}</span>
               </button>
             </div>
           </div>
@@ -573,7 +596,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
           {/* Priority Alerts Widget */}
           <div className="priority-widget">
             <h4>
-              <DynamicIcon name="fa-bell" size={18} /> Priority Actions
+              <DynamicIcon name="fa-bell" size={18} />{" "}
+              <span>Priority Actions</span>
             </h4>
             {alerts.map((alert, idx) => (
               <div className="alert-item" key={idx}>
@@ -598,7 +622,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
             size={16}
             style={{ marginRight: "8px" }}
           />{" "}
-          Official Updates
+          <span>Official Updates</span>
         </div>
         <div className="marquee-content">
           {marqueeItems.map((item, idx) => (
@@ -627,8 +651,6 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
         </div>
       </section>
 
-   
-
       {/* DASHBOARD CARDS SECTION */}
       <section className="dashboard-section">
         <div className="section-header">
@@ -639,17 +661,20 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                 size={24}
                 style={{ color: "var(--primary-light)" }}
               />{" "}
-              Integrated Service Dashboards
+              <span>Integrated Service Dashboards</span>
             </h3>
             <div className="legend">
               <div className="legend-item">
-                <div className="legend-dot green"></div> Real-time
+                <div className="legend-dot green"></div>{" "}
+                <span>Real-time</span>
               </div>
               <div className="legend-item">
-                <div className="legend-dot amber"></div> Syncing
+                <div className="legend-dot amber"></div>{" "}
+                <span>Syncing</span>
               </div>
               <div className="legend-item">
-                <div className="legend-dot grey"></div> Registry
+                <div className="legend-dot grey"></div>{" "}
+                <span>Registry</span>
               </div>
             </div>
           </div>
@@ -659,7 +684,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
               className="btn-export"
               onClick={() => alert("Generating M&E Report for World Bank...")}
             >
-              <DynamicIcon name="fa-file-export" size={16} /> Export Report
+              <DynamicIcon name="fa-file-export" size={16} />{" "}
+              <span>Export Report</span>
             </button>
           </div>
         </div>
@@ -669,7 +695,15 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
             <div
               className="service-card"
               key={service.id}
-              onClick={() => alert(`Navigating to ${service.title}...`)}
+              onClick={() => navigate(service.route)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  navigate(service.route);
+                }
+              }}
             >
               <div className={`sync-bar ${service.status}`}></div>
               <div className="card-image-wrapper">
@@ -684,7 +718,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                   <div className="data-status">
                     <div className={`status-pill ${service.statusLabel}`}>
                       <DynamicIcon name="fa-circle" size={8} />{" "}
-                      {service.statusText}
+                      <span>{service.statusText}</span>
                     </div>
                   </div>
                 </div>
@@ -693,11 +727,19 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                 <p>{service.desc}</p>
                 <div className="card-footer">
                   <div className="stat">
-                    <DynamicIcon name={service.icon} size={16} /> {service.stat}{" "}
+                    <DynamicIcon name={service.icon} size={16} />{" "}
+                    <span>{service.stat}</span>{" "}
                     <span>{service.statLabel}</span>
                   </div>
-                  <button className="cta-button">
-                    {service.cta} <DynamicIcon name="fa-arrow-right" size={14} />
+                  <button
+                    className="cta-button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(service.route);
+                    }}
+                  >
+                    <span>{service.cta}</span>{" "}
+                    <DynamicIcon name="fa-arrow-right" size={14} />
                   </button>
                 </div>
               </div>
@@ -733,24 +775,26 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       <footer>
         <div className="footer-inner">
           <div className="system-status">
-            <div className="pulse"></div> All Systems Operational (API Uptime:
-            99.98%)
+            <div className="pulse"></div>{" "}
+            <span>All Systems Operational (API Uptime: 99.98%)</span>
           </div>
           <div className="footer-links">
             <a href="#">
-              <DynamicIcon name="fa-shield-alt" size={14} /> Data Protection Act
-              Compliance
+              <DynamicIcon name="fa-shield-alt" size={14} />{" "}
+              <span>Data Protection Act Compliance</span>
             </a>
             <a href="#">
-              <DynamicIcon name="fa-file-contract" size={14} /> Data Sharing
-              Agreements
+              <DynamicIcon name="fa-file-contract" size={14} />{" "}
+              <span>Data Sharing Agreements</span>
             </a>
             <a href="#">
-              <DynamicIcon name="fa-headset" size={14} /> NPCU Support
+              <DynamicIcon name="fa-headset" size={14} />{" "}
+              <span>NPCU Support</span>
             </a>
           </div>
           <div style={{ fontSize: "0.75rem" }}>
-            © 2026 Ministry of Agriculture & Livestock Development. Powered by KALRO.
+            © 2026 Ministry of Agriculture & Livestock Development. Powered by
+            KALRO.
           </div>
         </div>
       </footer>

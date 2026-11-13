@@ -1,0 +1,25 @@
+export const alertsData = [
+  { type: 'red', icon: 'fa-exclamation-triangle', title: 'Drought Watch: 12 Counties', desc: 'Water trucking required in ASAL regions.' },
+  { type: 'amber', icon: 'fa-ticket-alt', title: '3,000 eVouchers Pending', desc: 'Fertilizer redemption closes in 48 hours.' },
+  { type: 'blue', icon: 'fa-bug', title: 'Pest Outbreak Alert', desc: 'Fall Armyworm reported in Trans Nzoia.' },
+];
+
+export const impactData = [
+  { value: '-15%', label: 'Food Insecurity', desc: 'Reduction in targeted areas', spark: 'M0,20 L10,18 L20,19 L30,14 L40,15 L50,10 L60,12 L70,6 L80,4' },
+  { value: '45,000+', label: 'Farmers Adopting TIMPs', desc: 'Resilience-enhancing practices', spark: 'M0,20 L10,19 L20,16 L30,15 L40,12 L50,10 L60,7 L70,4 L80,2' },
+  { value: '12,500', label: 'Hectares Managed', desc: 'Integrated land management', spark: 'M0,22 L10,20 L20,18 L30,18 L40,14 L50,11 L60,9 L70,7 L80,5' },
+  { value: 'KSh 2.4B', label: 'Market Volume', desc: 'Agricultural production sold', spark: 'M0,18 L10,15 L20,17 L30,12 L40,13 L50,8 L60,9 L70,4 L80,3' },
+  { value: '8', label: 'Policies Adopted', desc: 'Food systems resilience focus', spark: 'M0,22 L10,22 L20,20 L30,20 L40,15 L50,15 L60,10 L70,10 L80,4' },
+];
+
+export const servicesData = [
+  { id: 1, title: 'Soil Sampling', tag: 'SFSHMP Platform', desc: 'Track soil health, sampling requests, and lab results. Precision agriculture starts with accurate soil data.', stat: '1,250', statLabel: 'samples', icon: 'fa-flask', iconClass: 'icon-soil', status: 'green', statusText: 'Synced 2m ago', img: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 2, title: 'Digital Climate Advisory', tag: 'KAOP & KALRO', desc: 'Real-time weather, seasonal forecasts, and climate-smart recommendations delivered via SMS and app.', stat: '3,800', statLabel: 'farmers', icon: 'fa-cloud-sun-rain', iconClass: 'icon-climate', status: 'green', statusText: 'Live Forecast', img: 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 3, title: 'Project Cooperatives', tag: 'EasySacco Integration', desc: 'Manage FPOs and SACCOs: membership, savings, credit scores, and automated EasySacco integration.', stat: '158', statLabel: 'groups', icon: 'fa-users-rectangle', iconClass: 'icon-coop', status: 'amber', statusText: 'Syncing 2d ago', img: 'https://images.unsplash.com/photo-1595155370214-4b3e3f9d1c2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 4, title: 'Common Interest Groups', tag: 'KIAMIS Database', desc: 'Beneficiary CIG registry: profiles, group dynamics, and saturation coverage across all project wards.', stat: '2,300', statLabel: 'CIGs', icon: 'fa-people-group', iconClass: 'icon-cig', status: 'grey', statusText: 'Registry', img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 5, title: 'Digitized TIMPs', tag: 'KeEP Platform', desc: 'Beneficiaries of Technology, Innovation & Management Practices – monitor adoption and impact.', stat: '4,100', statLabel: 'adopters', icon: 'fa-microchip', iconClass: 'icon-timp', status: 'amber', statusText: 'Delayed 5d', img: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 6, title: 'Farmer Led Irrigation (FLID)', tag: 'IoT Sensor Network', desc: 'Monitor irrigation schemes, water use, and connect farmers with solar-powered smart systems.', stat: '78', statLabel: 'schemes', icon: 'fa-water', iconClass: 'icon-flid', status: 'green', statusText: 'Live Sensor', img: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 7, title: 'Agripreneur Management', tag: 'Agtech Pathway 1', desc: 'Manage agripreneur bootcamps, incubation, commercialization, and performance tracking.', stat: '1,336', statLabel: 'agents', icon: 'fa-user-tie', iconClass: 'icon-agripreneur', status: 'grey', statusText: 'Secure', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 8, title: 'One Million Farmer Platform', tag: 'Agtech Pathway 2', desc: 'OMFP integration, unified farmer data lake, service matching, and big data insights.', stat: '6.4M', statLabel: 'records', icon: 'fa-database', iconClass: 'icon-omfp', status: 'green', statusText: 'Synced 10m ago', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { id: 9, title: 'MoALD Services', tag: 'eVoucher & DVS', desc: 'Ministry services: Fertilizer distribution (eVoucher) and livestock vaccination tracking.', stat: 'eVoucher', statLabel: '& Vaccines', icon: 'fa-syringe', iconClass: 'icon-moald', status: 'amber', statusText: 'Pending', img: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+];
