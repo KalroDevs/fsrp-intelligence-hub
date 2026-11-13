@@ -377,7 +377,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
               <h1>
                 FSRP Kenya Intelligence Hub 
               </h1>
-              <p>Food Systems Resilience Program</p>
+              <p>Ministry of Agriculture and Livestock Development</p>
             </div>
           </div>
         </div>
