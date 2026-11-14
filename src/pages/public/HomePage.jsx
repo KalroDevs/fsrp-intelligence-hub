@@ -28,7 +28,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     en: {
       heroTitle: "Data-Driven Decisions.\nResilient Food Systems.",
       heroDesc:
-        "Connecting knowledge, technologies, and institutions to build productive, climate-resilient food systems across Kenya.",
+        " ",
       btnExplore: "Explore Digital Services",
       btnResults: "View Project Results",
       navHome: "Home",
@@ -68,20 +68,20 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     {
       type: "red",
       icon: "fa-exclamation-triangle",
-      title: "Drought Watch: 2 Counties",
-      desc: "Water trucking required in ASAL regions.",
+      title: "Food Insecurity Situation",
+      desc: "Watch list: Turkana, Mandera, Wajir, Garissa, Tana River",
     },
     {
       type: "amber",
       icon: "fa-ticket-alt",
-      title: "3,000+ eVouchers Pending",
-      desc: "Fertilizer redemption closes in 1 week.",
+      title: "Agricultural support helplines",
+      desc: "Subsidised Inputs, Production & Agronomy Advice, Pest & Disease Management, Extension Services & Government Programmes, Market Information & Post-Harvest Handling. Call: 0800724891/0800721741 ",
     },
     {
       type: "blue",
       icon: "fa-bug",
-      title: "Pest Outbreak Alert",
-      desc: "Fall Armyworm reported in Garisaa, Tana River counties.",
+      title: "Pest/Disease Outbreak Alert",
+      desc: "RVF, PPR, FMD, and LSD, ASF, Desert Locusts, African Armyworms, Fall Armyworm, Quelea birds, invasive weeds.",
     },
   ];
 
@@ -119,7 +119,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
     },
     {
       value: "45%",
-      label: "Reported farmer income increases",
+      label: "Reported farmer income increase",
       desc: "Beneficiary linkage to inputs, aggregation, and credit access leading to increase in farm income",
     },
     {
@@ -144,7 +144,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusLabel: "amber",
       statusText: "Syncing 2d ago",
       img: "images/cooperatives.jpg",
-      cta: "Manage",
+      cta: "View",
       route: "/cooperatives/home",
     },
     {
@@ -161,7 +161,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Secure",
       img: "images/agripreneur.jpg",
       cta: "Manage",
-      route: "/dashboard/beneficiaries",
+      route: "/agripreneur/dashboard",
     },
     {
       id: 3,
@@ -193,7 +193,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Synced 10m ago",
       img: "images/agritech.webp",
       cta: "View Data",
-      route: "/dashboard/beneficiaries",
+      route: "/omfp/dashboard",
     },
     {
       id: 5,
@@ -209,7 +209,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Pending",
       img: "images/fertilized.jpg",
       cta: "Check",
-      route: "/dashboard/services",
+      route: "/fertilizer/dashboard",
     },
     {
       id: 6,
@@ -225,7 +225,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Pending",
       img: "images/vaccination.jpg",
       cta: "Check",
-      route: "/dashboard/services",
+      route: "/vaccinantion/home",
     },
     {
       id: 7,
@@ -241,7 +241,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Live Forecast",
       img: "images/kaop.jpg",
       cta: "Get Forecast",
-      route: "/dashboard/advisories",
+      route: "/advisory/dashboard",
     },
     {
       id: 8,
@@ -256,14 +256,14 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusLabel: "green",
       statusText: "Synced 2m ago",
       img: "images/soil.jpg",
-      cta: "Request",
-      route: "/dashboard/technologies",
+      cta: "View",
+      route: "/soil-sampling/home",
     },
     {
       id: 9,
-      title: "Soil Recommendations",
-      tag: "KALRO",
-      desc: "Track soil health, sampling requests, and lab results. Precision agriculture starts with accurate soil data.",
+      title: "Digital Products/Services",
+      tag: "KALRO/MoALD",
+      desc: "Access agriculture sector digital products and services",
       stat: "100K",
       statLabel: "recommendation",
       icon: "fa-flask",
@@ -272,8 +272,8 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusLabel: "green",
       statusText: "Synced 2m ago",
       img: "images/apoei.jpg",
-      cta: "Request",
-      route: "/dashboard/technologies",
+      cta: "Launch",
+      route: "/digital-products/dashboard",
     },
     {
       id: 10,
@@ -289,7 +289,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Delayed 5d",
       img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       cta: "View",
-      route: "/dashboard/technologies",
+      route: "/timps/home",
     },
     {
       id: 11,
@@ -305,7 +305,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Live Sensor",
       img: "images/irrigation.jpg",
       cta: "View",
-      route: "/dashboard/technologies",
+      route: "/flid/home",
     },
     {
       id: 12,
@@ -321,7 +321,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
       statusText: "Registry",
       img: "images/apoei2.jpg",
       cta: "View",
-      route: "/dashboard/beneficiaries",
+      route: "/cig/home",
     },
   ];
 
@@ -403,6 +403,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
                 alt="FSRP Logo"
                 height={60}
                 width={70}
+                className="rounded-lg object-cover"
               />
             </div>
             <div className="logo-text">
@@ -570,12 +571,10 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-tag">
-              <div className="dot"></div>{" "}
-              <span>FOOD SYSTEMS RESILIENCE PROGRAM</span>
-            </div>
+            
             <h2 style={{ whiteSpace: "pre-line" }}>{currentT.heroTitle}</h2>
             <p>{currentT.heroDesc}</p>
+            <p><br /> <br /> </p>
             <div className="hero-buttons">
               <button
                 className="btn btn-primary"
@@ -622,7 +621,7 @@ const HomePage = ({ lang = "en", onLangChange, t }) => {
             size={16}
             style={{ marginRight: "8px" }}
           />{" "}
-          <span>Official Updates</span>
+          <span>Updates</span>
         </div>
         <div className="marquee-content">
           {marqueeItems.map((item, idx) => (

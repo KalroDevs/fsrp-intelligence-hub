@@ -254,10 +254,16 @@ header {
 .hero {
   position: relative;
   height: 560px;
-  background: linear-gradient(100deg, rgba(6,35,26,.92) 0%, rgba(15,81,56,.82) 40%, rgba(15,81,56,.55) 68%, rgba(15,81,56,.30) 100%),
+  background: linear-gradient(
+                100deg, 
+                rgba(6,35,26,.85) 0%, 
+                rgba(15,81,56,.70) 15%, /* Shifted the lighter fade to start earlier on the left */
+                rgba(15,81,56,.35) 30%, 
+                rgba(15,81,56,.10) 100%
+              ),
               url("../../images/fsrp_bg3.png");
   background-size: cover;
-  background-position: center 30%;
+  background-position: 20% 30%; /* Shifted the background image anchor point further left (from center to 20%) */
   display: flex;
   align-items: center;
 }

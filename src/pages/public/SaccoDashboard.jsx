@@ -387,10 +387,10 @@ const SaccoDashboard = () => {
               </div>
             </div>
             <div className="flex space-x-4 mb-4 text-xs font-medium text-gray-600">
-              <div className="flex items-center"><div className="w-3 h-3 bg-[#2e8b57] mr-1 rounded-sm"></div> Agricultural</div>
-              <div className="flex items-center"><div className="w-3 h-3 bg-[#5f9ea0] mr-1 rounded-sm"></div> Farm Input</div>
-              <div className="flex items-center"><div className="w-3 h-3 bg-[#fbbf24] mr-1 rounded-sm"></div> Personal</div>
-              <div className="flex items-center"><div className="w-3 h-3 bg-[#334155] mr-1 rounded-sm"></div> Mortgage</div>
+              <div className="flex items-center"><div className="w-3 h-3 bg-[#2e8b57] mr-1 rounded-sm"></div> Camel</div>
+              <div className="flex items-center"><div className="w-3 h-3 bg-[#5f9ea0] mr-1 rounded-sm"></div> Sorghum</div>
+              <div className="flex items-center"><div className="w-3 h-3 bg-[#fbbf24] mr-1 rounded-sm"></div> Beans</div>
+              <div className="flex items-center"><div className="w-3 h-3 bg-[#334155] mr-1 rounded-sm"></div> Beef Cattle</div>
             </div>
             <div className="relative h-[200px] w-full"><canvas ref={loanTypeRef}></canvas></div>
           </div>
